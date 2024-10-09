@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:banderas/domain/entities/flag.dart';
+
 List<CountriesModel> countriesModelFromJson(String str) => List<CountriesModel>.from(json.decode(str).map((x) => CountriesModel.fromJson(x)));
 
 String countriesModelToJson(List<CountriesModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
