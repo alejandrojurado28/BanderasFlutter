@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 class GetYesNoAnswer {
   final _dio = Dio();
 
-  Future<Flag> getAnswer() async {
+  Future<CountriesModel> getAnswer() async {
     final response = await _dio.get('https://restcountries.com/v3.1/name/{name}');
 
     if (response.statusCode == 200) {
