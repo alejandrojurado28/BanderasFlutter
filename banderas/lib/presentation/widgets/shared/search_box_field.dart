@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SearchBoxField extends StatelessWidget {
-  const SearchBoxField({super.key});
+  final TextEditingController textController;
+  final VoidCallback onSearch;
+
+  const SearchBoxField({super.key, required this.textController, required this.onSearch});
 
   @override
   Widget build(BuildContext context) {
@@ -16,15 +19,13 @@ class SearchBoxField extends StatelessWidget {
       focusedBorder: outlineInputBorder,
       filled: true,
       suffixIcon: IconButton(
-        icon: const Icon( Icons.send ),
-        onPressed: () {
-          // final textvalue = textController.value.text;
-          print('button');
-        }
-      )
+        icon: const Icon(Icons.send),
+        onPressed: onSearch, // Llama al método de búsqueda cuando se presione
+      ),
     );
 
     return TextFormField(
+      controller: textController,
       decoration: inputDecoration,
     );
   }
